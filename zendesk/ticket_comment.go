@@ -18,6 +18,7 @@ type TicketComment struct {
 	Attachments []Attachment `json:"attachments,omitempty"`
 	CreatedAt   *time.Time   `json:"created_at,omitempty"`
 	Uploads     []string     `json:"uploads,omitempty"`
+	Via         *Via         `json:"via,comitempty"`
 }
 
 type RedactedString struct {
