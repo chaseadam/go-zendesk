@@ -25,6 +25,12 @@ type RedactedString struct {
 	Text *string `json:"text"`
 }
 
+func (c *client) ListTicketCommentsDesc(id int64) ([]TicketComment, error) {
+	out := new(APIPayload)
+	err := c.get(fmt.Sprintf("/api/v2/tickets/%d/comments.json?sort_order=desc", id), out)
+	return out.Comments, err
+}
+
 func (c *client) ListTicketComments(id int64) ([]TicketComment, error) {
 	out := new(APIPayload)
 	err := c.get(fmt.Sprintf("/api/v2/tickets/%d/comments.json", id), out)
